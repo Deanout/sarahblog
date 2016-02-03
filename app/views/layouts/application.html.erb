@@ -31,10 +31,16 @@
 		<div id="main_content">
 			<div id="header">
 				<p>All Posts</p>
+				<% if current_user %>
 				<div class="buttons">
 					<button class="button"><%= link_to "New Post", new_post_path %></button>
-					<button class="button"><%= link_to "Logout", '#' %></button>
+					<button class="button"><%= link_to "Logout", destroy_user_session_path %></button>
 				</div>
+				<% else %>
+					<div class="buttons">
+					<button class="button"><%= link_to "Login",  new_user_session_path %></button>
+				</div>
+				<% end %>
 
 			</div>
 			<%= yield %>
